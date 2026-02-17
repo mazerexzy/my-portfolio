@@ -1,0 +1,372 @@
+@font-face {
+    font-family: 'IBM Plex Mono';
+    src: url(fonts/IBMPlexMono-Bold.woff2) format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IBM Plex Mono';
+    src: url(fonts/IBMPlexMono-Regular.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IBM Plex Mono';
+    src: url(fonts/IBMPlexMono-SemiBold.woff2) format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url(fonts/Raleway-Regular.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url(fonts/Raleway-Bold.woff2) format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url(fonts/Raleway-ExtraBold.woff2) format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-family: "IBM Plex Mono", sans-serif;
+    --second-family: "Raleway", sans-serif;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.top-menu {
+    display: flex;
+    max-width: 1300px;
+
+    align-items: center;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    color: #9c9c9c;
+    background-color: #1b1b1b;
+    height: 70px;
+    border-radius: 0 0 8px 8px;
+    padding: 0 100px;
+    margin: 20px auto 0;
+    gap: 100px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 110px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    ;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #9c9c9c;
+    position: relative;
+    padding-bottom: 5px;
+    transition: 0.3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #9c9c9c;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #9c9c9c;
+    text-shadow: 0 0 10px blueviolet;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+    box-shadow: 0 5px 10px 5px blueviolet;
+}
+
+.nav-links a:active {
+    transform: scale(0.98);
+    filter: brightness(0.8);
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.social-links img {
+    display: block;
+    width: 20px;
+    height: 30px;
+    filter: brightness(0) invert(1);
+    transition: all 0.3s ease;
+}
+
+.social-links img:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 8px rgb(166, 71, 255));
+}
+
+.top-menu p {
+    margin: 0;
+}
+
+.text-botton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px auto 0;
+    max-width: 1100px;
+}
+
+.main-icon {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.main-icon:hover {
+    transform: scale(1.1);
+}
+
+.main-icon::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: conic-gradient(transparent, transparent, #8200ff);
+    animation: snake-rotate 4s linear infinite;
+    z-index: -2;
+}
+
+.main-icon img {
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 2;
+}
+
+.maintext {
+    width: 492px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.maintext h1 {
+    font-family: var(--second-family);
+    font-weight: 800;
+    font-size: 44px;
+    color: transparent;
+    padding-block: 10px;
+    padding-inline: 0;
+    width: fit-content;
+    height: 72px;
+    gap: 10px;
+    position: relative;
+    background: linear-gradient(90deg,
+            rgba(130, 0, 255, 0) 0%,
+            rgba(130, 0, 255, 1) 50%,
+            rgba(130, 0, 255, 0) 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-stroke: 3px rgba(130, 0, 255, 0.5);
+    letter-spacing: 5px;
+    animation: text-snake-move 3s linear infinite;
+    overflow: hidden;
+    display: inline-block;
+    z-index: 1;
+    transition: transform 0.4s ease, text-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+.maintext h1:hover {
+    transform: scale(1.15);
+}
+
+
+
+.maintext p {
+    font-family: var(--font-family);
+    width: 492px;
+    height: 72px;
+    gap: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 171%;
+    letter-spacing: 0.01em;
+    color: #9c9c9c;
+    cursor: pointer;
+}
+
+.maintext a {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    color: #fff;
+    background-color: blueviolet;
+    display: inline-block;
+    border: 1px solid blueviolet;
+    border-radius: 4px;
+    padding-block: 21px;
+    padding-inline: 64px;
+    margin-top: 30px;
+    box-shadow: 0 10px 20px rgba(255, 0, 157, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+    transition: 0.3s ease-in-out;
+}
+
+.maintext a:hover {
+    background-color: rgb(139, 71, 202);
+    box-shadow: 0 12px 22px rgb(139, 71, 202);
+}
+
+.maintext a:active {
+    transform: scale(0.98);
+    filter: brightness(0.8);
+}
+
+.client-logos {
+    display: flex;
+    flex-direction: column;
+    max-width: 1050px;
+    height: 60px;
+    align-items: flex-start;
+    margin-top: 160px;
+    margin-left: 250px;
+    justify-content: space-between;
+    gap: 15px;
+    animation: mainpoyav 1s ease;
+}
+
+.logos {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#worked-with {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    color: #fff;
+    width: 93px;
+    height: 18px;
+    gap: 10px;
+}
+
+.common-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 160px;
+    height: 60px;
+}
+
+.main-content {
+    animation: mainpoyav 1s ease;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes snake-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes text-snake-move {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+@keyframes mainpoyav {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
