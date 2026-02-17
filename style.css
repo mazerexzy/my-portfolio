@@ -56,6 +56,9 @@
     --font-family: "IBM Plex Mono", sans-serif;
     --second-family: "Raleway", sans-serif;
 }
+html, body {
+    max-width: 100%;
+}
 
 body {
     background-color: #000;
@@ -164,7 +167,7 @@ body {
 .main-icon {
     position: relative;
     width: 350px;
-    height: 350px;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     overflow: hidden;
     display: flex;
@@ -190,8 +193,8 @@ body {
 }
 
 .main-icon img {
-    width: calc(100% - 4px);
-    height: calc(100% - 4px);
+    width: 345px;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     object-fit: cover;
     z-index: 2;
@@ -370,13 +373,72 @@ body {
         opacity: 1;
     }
 }
-@media (max-width: 768px) {
-    .main-content {
+
+@media (max-width: 480px) {
+    .top-menu-s, 
+    .top-menu {
+        width: 100%;
+        height: auto;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .nav-links div {
+        margin: 0;
+    }
+
+    .text-botton {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+        width: 100% !important; 
+        max-width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .maintext {
+        width: 100% !important;
+    }
+    .maintext p {
+        width: 100% !important;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding-right: 10px;
+    }
+
+    .main-icon {
+        width: 220px;
+        height: auto;
+        align-self: flex-start;
+        margin-left: 0;
+        margin-bottom: 20px;
+        order: -1;
+    }
+
+    .main-icon img {
+        width: 215px;
+        border-radius: 50%;
+        object-fit: cover;
+        z-index: 2;
+    }
+
+
+
+    .logos {
+        max-width: 100%;
+        align-items: flex-start;
+        display: flex;
+        flex-direction: row;
+        margin-right: 50px;
+        flex-wrap: wrap;
     }
     .client-logos {
-        max-width: 700px;
-        align-items: center;
+        margin: 25px auto;
     }
 }
